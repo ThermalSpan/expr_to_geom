@@ -17,7 +17,7 @@ use bincode::serialize_into;
 use std::io::BufWriter;
 
 #[derive(Debug, StructOpt)]
-#[structopt(name = "example")]
+#[structopt(name = "expr_to_geom")]
 struct Args {
     /// The epression to generate geometry for
     #[structopt(short = "e", long = "expression")]
