@@ -1,0 +1,13 @@
+[package]
+name = "expr_to_geom"
+version = "0.1.0"
+authors = ["ThermalSpan <russell.w.bentley@icloud.com>"]
+
+[dependencies]
+implicit = { path = "../implicit-plotter"}
+geoprim = { path = "../geoprim" }
+structopt = "0.2.8"
+bincode = "1.0.0"
+
+[profile.release]
+debug = true
