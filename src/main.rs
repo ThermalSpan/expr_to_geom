@@ -38,6 +38,10 @@ struct Args {
     /// The bounding box side size
     #[structopt(short = "b", long = "bounding-box", default_value = "40.0")]
     box_size: f32,
+
+    /// If passed, don't plot the oct tree
+    #[structopt(long = "no-oct-tree")]
+    no_oct_tree: bool
 }
 
 fn main() {
@@ -72,7 +76,7 @@ fn main() {
    
         println!("Plotting mtree...");
         let mut plot = Plot::new();
-        n.add_to_plot(false, &mut plot);
+        n.add_to_plot(args.no_oct_tree, &mut plot);
 
         let file = File::create(&args.output).unwrap();
         let mut w = BufWriter::new(file);
