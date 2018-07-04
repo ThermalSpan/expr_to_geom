@@ -66,7 +66,7 @@ fn main() {
         println!("Plotting mtree...");
         mtree.generate_vertex_map();
         let mut plot = Plot::new();
-        mtree.add_to_plot(true, true, true, &mut plot);
+        mtree.add_to_plot(false, false, false, true, &mut plot);
         let file = File::create(&args.output).unwrap();
         let mut w = BufWriter::new(file);
         serialize_into(&mut w, &plot).expect("Unable to serialize plot");
@@ -87,13 +87,13 @@ fn main() {
                 println!("Next level...");
                 mtree.next_level();
                 mtree.generate_vertex_map();
-                mtree.generate_edge_set();
+                mtree.generate_triangle_set();
             }
         }
 
         println!("Plotting mtree...");
         let mut plot = Plot::new();
-        mtree.add_to_plot(false, true, true, &mut plot);
+        mtree.add_to_plot(false, true, false, true, &mut plot);
 
         let file = File::create(&args.output).unwrap();
         let mut w = BufWriter::new(file);
